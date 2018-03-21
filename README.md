@@ -1,3 +1,2 @@
 # genrenck
-更好毕竟你看没了，；。‘’
-cvgbhnjmk,l.;/、
+git push -u origin master

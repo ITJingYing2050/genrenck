@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    >
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客古典系列之——江南墨卷</title>
+    <meta name="keywords" content="个人博客古典系列之——江南墨卷" />
+    <meta name="description" content="个人博客古典系列之——江南墨卷" />
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="/js/modernizr.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<style>
+    .div1{
+        width: 300px;
+        height: 60px;
+        border: solid #d2d2d2 1px;
+        margin: 7px;
+        float: left;
+    }
+    #triangle-right{
+        width: 0px;
+        height: 0px;
+        color: white;
+        text-align: center;
+        border-top: 20px solid transparent;
+        border-right: 30px solid #DDD;
+        border-bottom: 20px solid transparent;
+    }
+    .container_1{
+        width: 100%;
+        height: 350%;
+        background-color: #756F71;
+        position: absolute;
+        background-color:rgba(0,0,0,0.3);
+        display: none;
+    }
+    .item{
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        margin: auto;
+        width:33%;
+        height: 40%;
+        border:1px solid black;
+        display: none;
+        border-radius: 10px;
+        background-image: url(" /photo/1.jpg");
+    }
+    .upload{
+        padding: 4px 10px;
+        height: 20px;
+        line-height: 20px;
+        position: relative;
+        border: 1px solid #999;
+        border-radius: 10px;
+        margin-left: 10px;
+        text-decoration: none;
+        color: #999;
+    }
+    .change{
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    button {
+        width: 200px;
+        padding:8px;
+        background-color: #428bca;
+        border-color: #357ebd;
+        color: #fff;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; /* future proofing */
+        -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        font-weight: 900;
+        font-size:125%
+    }
+
+</style>
+<body>
+<div class="topnav">
+    <a href="" target="_blank">个人博客古典系列之——江南墨卷</a>——作品来自<a href="" target="_blank">王海涛个人博客网站</a>
+</div>
+<div id="wrapper">
+    <header>
+        <div class="headtop"></div>
+        <div class="contenttop">
+            <div class="logo f_l">个人博客古典系列之——江南墨卷</div>
+            <div class="search f_r">
+                <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+                    <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+                    <input name="show" value="title" type="hidden">
+                    <input name="tempid" value="1" type="hidden">
+                    <input name="tbname" value="news" type="hidden">
+                    <input name="Submit" class="input_submit" value="搜索" type="submit">
+                </form>
+            </div>
+            <div class="blank"></div>
+            <nav>
+                <div  class="navigation">
+                    <ul class="menu">
+                        <li><a href="/index">网站首页</a></li>
+                        <li><a href="#">关于我</a>
+                            <ul>
+                                <li><a href="/about">个人简介</a></li>
+                                <li><a href="/listpic">个人相册</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">我的日记</a>
+                            <ul>
+                                <li><a href="/newlistpic">个人日记</a></li>
+                                <li><a href="/newlistpic">学习笔记</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/newlistpic">技术文章</a> </li>
+                        <li><a href="/view/liuyan">给我留言</a> </li>
+                    </ul>
+                </div>
+            </nav>
+            <SCRIPT type=text/javascript>
+                // Navigation Menu
+                $(function() {
+                    $(".menu ul").css({display: "none"}); // Opera Fix
+                    $(".menu li").hover(function(){
+                        $(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+                    },function(){
+                        $(this).find('ul:first').css({visibility: "hidden"});
+                    });
+                    $("#dl").click(function () {
+                        $(this).css({"border-color":"red","color":"red"});
+                        $("#div11,#div22").css("display", "block");
+                        $('body').css('overflow','hidden');//浮层出现时窗口不能滚动设置
+                    });
+                    $("#b1").click(function () {
+                        $("#dl").css({"border-color":"#666","color":"#666"});
+                        $("#div11,#div22").css("display", "none");
+                        $('body').css('overflow','auto');//浮层出现时窗口不能滚动设置
+                    });
+                    $("#zhuc").click(function () {
+                        $("#div55").css("display", "none");
+                        $("#div56").css("display", "block");
+                    });
+                    $("#sub").click(function () {
+
+                        $("#dizhi").val($("#in3").text());
+                        $("#name").val($("#in1").val());
+                        $(".hname").val($("#in1").val());
+                        $("#time").val(new Date());
+                    });
+                    $("input[type='file']").change(function(){
+                        var file = this.files[0];
+                        if (window.FileReader) {
+                            var reader = new FileReader();
+                            reader.readAsDataURL(file);
+                            //监听文件读取结束后事件
+                            reader.onloadend = function (e) {
+                                $(".img").attr("src",e.target.result);//e.target.result就是最后的路径地址
+                                var str=$("input[type='file']").val();
+                                str="/photo/"+getFileName(str);
+                                function getFileName(o){
+                                    var pos=o.lastIndexOf("\\");
+                                    return o.substring(pos+1);
+                                }
+                                $("#in3").text(str);
+                            };
+                        }
+                    });
+
+                });
+            </SCRIPT>
+        </div>
+    </header>
+    <div class="jztop"></div>
+    <div style="width: 1000px;height: 2000px;border: solid #DDD 1px;margin: 25px;margin-left: 170px;background: #DDD;">
+        <div style="width: 900px;height: 1900px;border: solid white 1px;margin: auto auto;margin-top: 50px;background-color: white;">
+            <div layout:fragment="content">默认内容</div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer">
+        <div class="f_l">
+            <p>All Rights Reserved 版权所有：<a href="http://www.yangqq.com">王海涛个人博客</a> 备案号：蜀ICP备00000000号</p>
+        </div>
+        <div class="f_r textr">
+            <p>Design by DanceSmile</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

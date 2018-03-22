@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客古典系列之——江南墨卷</title>
+    <meta name="keywords" content="个人博客古典系列之——江南墨卷" />
+    <meta name="description" content="个人博客古典系列之——江南墨卷" />
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="/js/modernizr.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<style>
+    .div1{
+        width: 300px;
+        height: 60px;
+        border: solid #d2d2d2 1px;
+        margin: 7px;
+        float: left;
+    }
+    #triangle-right{
+        width: 0px;
+        height: 0px;
+        color: white;
+        text-align: center;
+        border-top: 20px solid transparent;
+        border-right: 30px solid #DDD;
+        border-bottom: 20px solid transparent;
+    }
+    .container_1{
+        width: 100%;
+        height: 350%;
+        background-color: #756F71;
+        position: absolute;
+        background-color:rgba(0,0,0,0.3);
+        display: none;
+    }
+    .item{
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        margin: auto;
+        width:33%;
+        height: 40%;
+        border:1px solid black;
+        display: none;
+        border-radius: 10px;
+        background-image: url(" /photo/1.jpg");
+    }
+    .upload{
+        padding: 4px 10px;
+        height: 20px;
+        line-height: 20px;
+        position: relative;
+        border: 1px solid #999;
+        border-radius: 10px;
+        margin-left: 10px;
+        text-decoration: none;
+        color: #999;
+    }
+    .change{
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    button {
+        width: 200px;
+        padding:8px;
+        background-color: #428bca;
+        border-color: #357ebd;
+        color: #fff;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; /* future proofing */
+        -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        font-weight: 900;
+        font-size:125%
+    }
+
+</style>
+<body>
+<div id="div11" class="container_1">
+    <div id="div22" class="item">
+        <div style="padding-top: 10px">
+            <span id="b1" style="margin-left: 420px; font-size: 20px;">×</span>
+            <div id="div55" style="display: block">
+                <div style="margin-left: 50px;">已有账号请登录，没有账号请注册！</div>
+                <div>
+                    <div class="div1" style="width: 20%;height: 70%;border: none;margin-left: 20px;margin-top: 25px">
+                        <a href="javascript:;" class="upload">选择图片
+                            <input class="change" type="file" multiple="multiple" />
+                        </a>
+                        <img src="" class="img" style="height: 50%;width: 100%;border-radius: 60%;margin-top: 6px" />
+                    </div>
+                    <div  class="div1" style="width: 70%;height:70%;border: none">
+                        <form action="/add1" method="post">
+                        <div style="margin-top: 50px;margin-left: 40px;">
+                            <span>用户名：</span><input id="in1" name="name" type="text">
+                        </div>
+                        <div style="margin:20px 51px;">
+                            <span>密码：</span><input id="in2" type="password">
+                            <input id="in3" name="dizhi" style="display: none">
+                            <input id="in4" name="time" style="display: none">
+                            <input name="jizi" value="null" style="display: none">
+                        </div>
+                        <div style="margin-left: 100px;">
+                            <input id="sub" type="submit" value="登录" style="width: 50px;height: 30px;">
+                            <input id="zhuc" type="submit" value="注册" style="width: 50px;height: 30px;margin-left: 20px;">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="div56" style="display: none">
+                <div style="margin-left: 50px;">欢迎来到注册页面！</div>
+                <div style="margin-top: 50px;margin-left: 90px;">
+                    <span>用户名：</span><input>
+                </div>
+                <div style="margin:20px 102px;">
+                    <span>密码：</span><input>
+                </div>
+                <div style="margin-left: 150px;">
+                    <input type="submit" value="注册" style="width: 50px;height: 30px;margin-left: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="topnav">
+    <a href="" target="_blank">个人博客古典系列之——江南墨卷</a>——作品来自<a href="" target="_blank">王海涛个人博客网站</a>
+</div>
+<div id="wrapper">
+    <header>
+        <div class="headtop"></div>
+        <div class="contenttop">
+            <div class="logo f_l">个人博客古典系列之——江南墨卷</div>
+            <div class="search f_r">
+                <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+                    <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+                    <input name="show" value="title" type="hidden">
+                    <input name="tempid" value="1" type="hidden">
+                    <input name="tbname" value="news" type="hidden">
+                    <input name="Submit" class="input_submit" value="搜索" type="submit">
+                </form>
+            </div>
+            <div class="blank"></div>
+            <nav>
+                <div  class="navigation">
+                    <ul class="menu">
+                        <li><a href="/index">网站首页</a></li>
+                        <li><a href="#">关于我</a>
+                            <ul>
+                                <li><a href="/about">个人简介</a></li>
+                                <li><a href="/listpic">个人相册</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">我的日记</a>
+                            <ul>
+                                <li><a href="/newlistpic">个人日记</a></li>
+                                <li><a href="/newlistpic">学习笔记</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/newlistpic">技术文章</a> </li>
+                        <li><a href="/view/liuyan">给我留言</a> </li>
+                    </ul>
+                </div>
+            </nav>
+            <SCRIPT type=text/javascript>
+                // Navigation Menu
+                $(function() {
+                    $(".menu ul").css({display: "none"}); // Opera Fix
+                    $(".menu li").hover(function(){
+                        $(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+                    },function(){
+                        $(this).find('ul:first').css({visibility: "hidden"});
+                    });
+                    $("#dl").click(function () {
+                        $(this).css({"border-color":"red","color":"red"});
+                        $("#div11,#div22").css("display", "block");
+                        $('body').css('overflow','hidden');//浮层出现时窗口不能滚动设置
+                    });
+                    $("#b1").click(function () {
+                        $("#dl").css({"border-color":"#666","color":"#666"});
+                        $("#div11,#div22").css("display", "none");
+                        $('body').css('overflow','auto');//浮层出现时窗口不能滚动设置
+                    });
+                    $("#zhuc").click(function () {
+                        $("#div55").css("display", "none");
+                        $("#div56").css("display", "block");
+                    });
+                    $("input[type='file']").change(function(){
+                        var file = this.files[0];
+                        if (window.FileReader) {
+                            var reader = new FileReader();
+                            reader.readAsDataURL(file);
+                            //监听文件读取结束后事件
+                            reader.onloadend = function (e) {
+                                $(".img").attr("src",e.target.result);//e.target.result就是最后的路径地址
+                                var str=$("input[type='file']").val();
+                                str="/photo/"+getFileName(str);
+                                function getFileName(o){
+                                    var pos=o.lastIndexOf("\\");
+                                    return o.substring(pos+1);
+                                }
+                                $("#in3").val(str);
+                                $("#in4").val(new Date());
+                            };
+                        }
+                    });
+
+                });
+            </SCRIPT>
+        </div>
+    </header>
+    <div class="jztop"></div>
+    <div style="width: 1000px;height: 2000px;border: solid #DDD 1px;margin: 25px;margin-left: 170px;background: #DDD;">
+        <div style="width: 900px;height: 1900px;border: solid white 1px;margin: auto auto;margin-top: 50px;background-color: white;">
+            <div style="width: 850px;height: 75px;border: solid #d2d2d2 1px;margin: 25px;background-color:#d2d2d2;">
+                <div class="div1" style="width: 220px;border-bottom-right-radius: 30px;border-top-right-radius: 30px; background-color:#756F71;">
+                    <div class="div1" style="width:10px; height:58px; margin: 0px;background-color: white;color: white;float: left;"></div>
+                    <div style="float: left;color: white;font-size: 30px;font-weight: 700;margin:10px 45px;">留言板</div>
+                </div>
+                <div class="div1" style="color: white;margin-left: 200px;font-weight: 900;width: 360px;margin-top: 50px;height: auto;">你，生命中最重要的过客，之所以是过客，因为你未曾为我停留</div>
+            </div>
+            <div>
+                <div style="margin: 30px;float: left"><img src="../photo/girl.jpg" style="border-radius: 90px;height: 130px;width: 130px;"/></div>
+                <div id="triangle-right" style="float: left;margin-top: 80px;"></div>
+                <div class="div1" style="margin-top: 60px;width: 500px;margin-left: 0px;height:auto;background-color: #DDD;border-color: #DDD;border-radius: 10px;padding: 30px;">
+                    当您驻足停留过，从此便注定我们的缘分。站在时间的尽头，我们已是朋友，前端的路上我再也不用一个人独自行走。
+                </div>
+            </div>
+            <div style="clear: left"></div>
+            <div>
+                <div th:if="${session.yh!= null}" >
+                    <img th:src="${session.yh.dizhi}" height="50px" width="50px" style="border-radius: 25px;margin-left: 100px;float: left;">
+                    <div style="float: left;font-weight: 900;font-size: 25px;margin:10px 20px;width: 200px" th:text="${session.yh.name}"></div>
+                    <a href="/dels"><button style="height: auto;width: 80px;margin-top:15px; margin-left:350px; padding:5px 0px;background-color: white;color: black;border: solid 1px;">退出登录</button></a>
+                </div>
+                <div id="dl"><button th:if="${session.yh == null}" style="height: auto;width: 40px;margin:0px 100px;padding:5px 0px;background-color: white;color: black;border: solid 1px;">登录</button></div>
+                <form action="/add" method="post">
+                    <input id="dizhi" th:if="${session.yh!= null}" th:value="${session.yh.dizhi}" name="dizhi" style="display: none">
+                    <input id="name" th:if="${session.yh!= null}" th:value="${session.yh.name}" name="name" style="display: none">
+                    <input id="time" th:if="${session.yh!= null}" th:value="${session.yh.time}"  name="time" style="display: none">
+                <textarea name="jizi" placeholder="来说两句吧..."  style="width: 700px;height: 60px;margin:15px 80px;outline: none;border: 1px solid #756F71;border-radius: 25px;resize: none;overflow-y:hidden;padding: 20px;"></textarea>
+                <div><button type="submit" style="width: 115px;height: auto;font-size: 20px;font-weight: 800;border: solid 1px;padding:5px 10px;border-radius: 10px;background-color: #756F71;color:white;margin-left: 700px;">畅言一下</button></div>
+                </form>
+            </div>
+            <div>
+                <div style="height: auto;width: 50px;border: solid 1px;margin-left:70px;border-top-right-radius: 15px;border-top-left-radius: 15px; padding:10px 10px;font-size: 20px;border-bottom: none;float: left;">评论</div>
+                <div style="height: 44px;width:670px;border:none;border-bottom: solid 1px;float: left "></div>
+            </div>
+            <div style="clear: left"></div>
+            <div style="width: 6px;height: 20px;border-radius: 3px;border: solid 1px; background-color: #756F71;margin: 20px;margin-left: 70px;float: left;"></div>
+            <div style="font-size:20px;float: left; margin-top: 20px;">最新评论</div>
+            <div style="clear: left"></div>
+            <div th:each="yh:${yhs}" style="margin:10px;">
+                <div style="height: 100px;width: 83%;border: none;margin: auto;">
+                    <div style="width:9%;height: 98px;border: none 1px;float: left"><img th:src="${yh.dizhi}" height="50px" width="50px" style="margin: 10px auto;border-radius: 25px;"></div>
+                    <div style="width:90%;height: 98px;border: none 1px;float: left">
+                        <div>
+                        <div th:text="${yh.name}" style="height: 5%;width: 70%;border: none 1px;padding: 15px; float: left;color: black"></div>
+                        <div th:text="${yh.time}" style="height: 5%;width: 10%;border: none 1px;padding:15px 6px;float: left"></div>
+                            <div><button class="hf" style="height: 5%;width: 10%;border: none 1px;padding:13px 5px;float: left;font-size: 10px;background-color: white;color: #756F71 ">回复</button></div>
+                            <div style="height: 5%;width: 2%;border: none 1px;padding:15px 2px;float: left"><a th:if="${session.yh!=null&&session.yh.name=='admin'}" th:href="@{/del(id=${yh.id})}">×</a></div>
+                        <div style="clear: both"></div>
+                        </div>
+                        <div th:text="${yh.jizi}" style="height: 35%;width: 96%;border: none 1px;padding: 10px">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div th:each="hf:${yh.list}">
+                        <div style="margin-bottom: 2px">
+                            <table cellspacing="0" border="0px" style="margin-left: 150px;">
+                                <th>
+                                    <td th:text="${hf.hname}" style="width: 80px;"></td>
+                                    <td style="padding: 0px 5px;color: black;">回复</td>
+                                    <td th:text="${yh.name}" style="width: 80px;"></td>
+                                    <td >：</td>
+                                    <td th:text="${hf.huihua}"></td>
+                                </th>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="hfdiv" style="display: none">
+                    <form action="/addhf" method="post">
+                        <input class="hname" name="hname" th:if="${session.yh != null}" th:value="${session.yh.name}" style="display: none">
+                        <input id="yongHu" name="yongHu" th:value="${yh.id}" style="display: none">
+                        <textarea name="huihua" placeholder="来说两句吧..." maxlength="100" style="width: 700px;height: 60px;margin:15px 80px;outline: none;border: 1px solid #756F71;border-radius: 25px;resize: none;overflow-y:hidden;padding: 20px;"></textarea>
+                        <div><button type="submit" style="width: 115px;height: auto;font-size: 20px;font-weight: 800;border: solid 1px;padding:5px 10px;border-radius: 10px;background-color: #756F71;color:white;margin-left: 700px;">畅言一下</button></div>
+                    </form>
+                </div>
+                <div style="border-bottom: dashed 1px;width: 84%;margin: 10px auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var hf=document.querySelectorAll(".hf");
+    var hiv=document.querySelectorAll(".hfdiv");
+    for(let i=0;i<hf.length;i++){
+        hf[i].onclick=function () {
+            if(hiv[i].style.display!="none"){
+                hiv[i].style.display="none";
+                hf[i].innerHTML="回复"
+            }else{
+                hiv[i].style.display="block";
+                hf[i].innerHTML="取消回复"
+            }
+        }
+    }
+</script>
+<footer>
+    <div class="footer">
+        <div class="f_l">
+            <p>All Rights Reserved 版权所有：<a href="http://www.yangqq.com">王海涛个人博客</a> 备案号：蜀ICP备00000000号</p>
+        </div>
+        <div class="f_r textr">
+            <p>Design by DanceSmile</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
